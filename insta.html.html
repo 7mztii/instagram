@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Change Password • Instagram</title>
+  <style>
+    body {
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #121212;
+      padding: 40px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3797f0;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+    .checkbox-container input {
+      width: auto;
+      margin-right: 8px;
+    }
+    .caption {
+      font-size: 12px;
+      color: #aaa;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+    <h2>Change Password</h2>
+    <input type="text" id="email" placeholder="Email or Username">
+    <input type="password" id="password" placeholder="New Password">
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="logoutOthers">
+      <label for="logoutOthers" class="caption">Log out of other devices</label>
+    </div>
+
+    <button onclick="storeData()">Submit</button>
+  </div>
+
+  <script>
+    function storeData() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const logoutOthers = document.getElementById('logoutOthers').checked;
+
+      const userData = {
+        email: email,
+        password: password,
+        logoutOthers: logoutOthers
+      };
+
+      localStorage.setItem('instaChangePassData', JSON.stringify(userData));
+      alert("Data saved to Local Storage!");
+    }
+  </script>
+</body>
+</html>
